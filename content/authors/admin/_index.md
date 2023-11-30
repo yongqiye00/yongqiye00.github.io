@@ -29,8 +29,8 @@ bio: My research interests include computational imaging and computer vision.
 
 # Interests to show in About widget
 interests:
-  - Artificial Intelligence
-  - Computational Imaging
+  - Image Processing
+  - Computer Vision
 
 # Education to show in About widget
 # education:
@@ -111,13 +111,15 @@ social:
   # Link to a PDF of your resume/CV.
   # To use: copy your resume to `static/uploads/resume.pdf`, enable `ai` icons in `params.yaml`,
   # and uncomment the lines below.
-  - icon: cv
-    icon_pack: ai
-    link: uploads/resume.pdf
+  # - icon: cv
+  #   icon_pack: ai
+  #   link: uploads/resume.pdf
 
 # Highlight the author in author lists? (true/false)
 highlight_name: true
 ---
+
+Yeliduosi Xiaokaiti  is an undergraduate student at the School of Electronics Engineering and Computer Science, Peking University. His current research direction is mainly image processing and computer vision.  
 
 <!-- Chien Shiung Wu is a professor of artificial intelligence at the Stanford AI Lab. Her research interests include distributed robotics, mobile computing and programmable matter. She leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks. -->
 {style="text-align: justify;"}
