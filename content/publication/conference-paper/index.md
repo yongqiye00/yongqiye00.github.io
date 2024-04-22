@@ -1,5 +1,5 @@
 ---
-title: 'An example conference paper'
+title: 'Towards HDR and HFR Video from Rolling-Mixed-Bit Spikings'
 
 # Authors
 # If you created a profile for a user (e.g. the default `admin` user), write the username (folder name) here

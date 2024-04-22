@@ -1,6 +1,6 @@
 ---
 # Display name
-title: Eldos Xawkat
+title: Yeliduosi Xiaokaiti
 
 # Name pronunciation (optional)
 name_pronunciation: ''
