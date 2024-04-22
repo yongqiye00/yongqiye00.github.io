@@ -6,7 +6,7 @@ title: 'Towards HDR and HFR Video from Rolling-Mixed-Bit Spikings'
 # and it will be replaced with their full name and linked to their profile.
 authors:
   - Yakun Chang
-  - admin
+  - **Yeliduosi Xiaokaiti**
   - Yujia Liu
   - Bin Fan
   - Zhaojun Huang 
