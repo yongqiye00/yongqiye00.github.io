@@ -7,7 +7,7 @@ title: 'Towards HDR and HFR Video from Rolling-Mixed-Bit Spikings'
 authors:
   - Yakun Chang
   - admin
-  - Yujia Liu1
+  - Yujia Liu
   - Bin Fan
   - Zhaojun Huang 
   - Tiejun Huang
@@ -17,7 +17,6 @@ authors:
 author_notes:
   - 'Equal contribution'
   - 'Equal contribution'
-  - 'Corresponding Author'
 
 date: '2024-02-27T00:00:00Z'
 doi: ''
@@ -29,6 +28,9 @@ publishDate: '-'
 # Accepts a single type but formatted as a YAML list (for Hugo requirements).
 # Enter a publication type from the CSL standard.
 publication_types: ['paper-conference']
+
+# publication_types: ["article-journal"]
+
 
 # Publication name and optional abbreviated publication name.
 publication: In *IEEE Conference on Computer Vision and Pattern Recognition*
