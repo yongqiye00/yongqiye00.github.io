@@ -18,7 +18,7 @@ const crimsonText = Crimson_Text({
 
 export const metadata: Metadata = {
   title: {
-    default: "Yeliduosi Xiaokaiti - AI Researcher & Computer Vision Scientist",
+    default: "Yeliduosi Xiaokaiti",
     template: "%s | Yeliduosi Xiaokaiti"
   },
   description: "Yeliduosi Xiaokaiti's academic portfolio featuring research in computational imaging, computer vision, event cameras, and spike cameras at Peking University.",
