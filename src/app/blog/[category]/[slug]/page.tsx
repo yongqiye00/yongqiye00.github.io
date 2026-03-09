@@ -1,4 +1,4 @@
-import { getPostBySlug } from "@/lib/blog";
+import { getPostBySlug, getAllPosts } from "@/lib/blog";
 import { BlogPost } from "@/components/blog-post";
 import { notFound } from "next/navigation";
 import Layout from "@/components/layout/layout";
@@ -9,6 +9,14 @@ interface BlogPostPageProps {
     category: string;
     slug: string;
   }>;
+}
+
+export async function generateStaticParams() {
+  const posts = await getAllPosts();
+  return posts.map((post) => ({
+    category: post.category,
+    slug: post.slug,
+  }));
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps) {
