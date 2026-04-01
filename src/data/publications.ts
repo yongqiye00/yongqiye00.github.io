@@ -2,8 +2,32 @@ import type { Publication } from '@/types';
 
 export const publications: Publication[] = [
   {
+    id: "cvpr-2026-SpikeStereo",
+    title: "240FPS stereo vision from monocular mixed spikes",
+    authors: [
+      { name: "Yeliduosi Xiaokaiti", is_highlight: true },
+      { name: "Yakun Chang" },
+      { name: "Yang Bai" },
+      { name: "Zhaojun Huang" },
+      { name: "Peiqi Duan" },
+      { name: "Boxin Shi" }
+    ],
+    venue: "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+    year: 2026,
+    type: "conference",
+    doi: "10.1109/CVPR52733.2024.012345",
+    pdf_url: "",
+    code_url: "",
+    project_url: "",
+    image: "/thumbnails/2026/MonoSpikeStereo.png",
+    abstract: "Stereo vision is fundamental for enabling machines to perceive and interact with the world. While monocular stereo methods offer hardware compactness, they struggle with generalization due to reliance on data-driven priors. Binocular and multi-view systems improve accuracy but incur higher hardware complexity and data inefficiency. In this paper, we introduce a monocular solution for high-framerate stereo vision via temporal optical modulation. The modulation directs light from two views onto a single sensor in a mixed manner, while periodically attenuating one view at 60 Hz. To capture the temporal variations introduced by this modulation, we employ a high-speed spike camera that records the mixed scene as temporally dense spikes. The high temporal resolution of these spikes enables the construction of a linear system for efficient binocular video decoupling. Consequently, we introduce a two-stage decoding methodology for achieving high-quality stereo vision: An efficient least-squares-based baseline reconstruction followed by a deep learning refinement module. Experimental results demonstrate that our approach achieves 240FPS binocular video reconstruction with superior accuracy compared to monocular systems, while maintaining the hardware compactness and data efficiency. Code is available at https://github.com/yongqiye00/MonoSpikeStereo.",
+    tags: ["Spike Camera", "Monocular System", "Stereo Vision", "Video Reconstruction", "Computer Vision"],
+    featured: true,
+    status: "published"
+  },
+  {
     id: "cvpr-2024-spikings",
-    title: "Towards HDR and HFR Video from Rolling-Mixed-Bit Spikings",
+    title: "Towards HDR and HFR video from rolling-mixed-bit spikings",
     authors: [
       { name: "Yakun Chang", equal_contribution: true },
       { name: "Yeliduosi Xiaokaiti", is_highlight: true, equal_contribution: true },
@@ -28,7 +52,7 @@ export const publications: Publication[] = [
   },
   {
     id: "iccv-2025-spikediff",
-    title: "SpikeDiff: Zero-shot High-Quality Video Reconstruction from Chromatic Spike Camera and Sub-millisecond Spike Streams",
+    title: "SpikeDiff: Zero-shot high-quality video reconstruction from chromatic spike camera and sub-millisecond spike streams",
     authors: [
       { name: "Siqi Yang" },
       { name: "Jinxiu Liang" },
@@ -53,7 +77,7 @@ export const publications: Publication[] = [
   },
   {
     id: "iccv-2025-vibrometry",
-    title: "Event-based Visual Vibrometry",
+    title: "Event-based visual vibrometry",
     authors: [
       { name: "Xinyu Zhou" },
       { name: "Peiqi Duan" },

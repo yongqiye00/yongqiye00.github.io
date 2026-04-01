@@ -23,22 +23,7 @@ const PublicationCard = ({ publication, featured = false, index = 0 }: Publicati
     return year.toString();
   };
 
-  // Format title to title case: only first letter and first letter after colon are capitalized
-  const formatTitle = (title: string) => {
-    return title
-      .toLowerCase()
-      .split(': ')
-      .map((part, index) => {
-        if (index === 0) {
-          // First part: capitalize first letter
-          return part.charAt(0).toUpperCase() + part.slice(1);
-        } else {
-          // Parts after colon: capitalize first letter
-          return part.charAt(0).toUpperCase() + part.slice(1);
-        }
-      })
-      .join(': ');
-  };
+
 
   const getVenueAbbreviation = (venue: string) => {
     const abbreviations: Record<string, string> = {
@@ -83,7 +68,7 @@ const PublicationCard = ({ publication, featured = false, index = 0 }: Publicati
   };
 
   const hasThumbnail = publication.image && publication.image.length > 0;
-  const thumbnailTarget = publication.pdf_url || publication.project_url || "#";
+  const thumbnailTarget = publication.pdf_url || publication.project_url;
 
   return (
     <motion.div
@@ -100,27 +85,48 @@ const PublicationCard = ({ publication, featured = false, index = 0 }: Publicati
           {/* Left Column - Thumbnail */}
           <div className="flex-shrink-0 flex items-center">
             {hasThumbnail ? (
-              <Link
-                href={thumbnailTarget}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block group"
-              >
-                <div
-                  className="relative w-[290px] max-h-[200px] rounded-xl overflow-hidden border border-slate-200 bg-slate-50 group-hover:border-slate-300 transition-colors"
-                  style={aspectRatio ? { aspectRatio } : { aspectRatio: '4/3' }}
+              thumbnailTarget ? (
+                <Link
+                  href={thumbnailTarget}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group"
                 >
-                  <Image
-                    src={publication.image!}
-                    alt={publication.title}
-                    fill
-                    className="object-contain"
-                    onLoadingComplete={(img) => {
-                      setAspectRatio(img.naturalWidth / img.naturalHeight);
-                    }}
-                  />
+                  <div
+                    className="relative w-[290px] max-h-[200px] rounded-xl overflow-hidden border border-slate-200 bg-slate-50 group-hover:border-slate-300 transition-colors"
+                    style={aspectRatio ? { aspectRatio } : { aspectRatio: '4/3' }}
+                  >
+                    <Image
+                      src={publication.image!}
+                      alt={publication.title}
+                      fill
+                      className="object-contain"
+                      onLoad={(e) => {
+                        const img = e.currentTarget;
+                        setAspectRatio(img.naturalWidth / img.naturalHeight);
+                      }}
+                    />
+                  </div>
+                </Link>
+              ) : (
+                <div className="block">
+                  <div
+                    className="relative w-[290px] max-h-[200px] rounded-xl overflow-hidden border border-slate-200 bg-slate-50 transition-colors"
+                    style={aspectRatio ? { aspectRatio } : { aspectRatio: '4/3' }}
+                  >
+                    <Image
+                      src={publication.image!}
+                      alt={publication.title}
+                      fill
+                      className="object-contain"
+                      onLoad={(e) => {
+                        const img = e.currentTarget;
+                        setAspectRatio(img.naturalWidth / img.naturalHeight);
+                      }}
+                    />
+                  </div>
                 </div>
-              </Link>
+              )
             ) : (
               <div className="relative w-[290px] aspect-[4/3] rounded-xl border border-slate-200 bg-slate-50 flex items-center justify-center">
                 <FileImage className="h-10 w-10 text-slate-300" />
@@ -132,7 +138,7 @@ const PublicationCard = ({ publication, featured = false, index = 0 }: Publicati
           <div className="flex-1 min-w-0 flex flex-col">
             {/* Title */}
             <h3 className="text-2xl font-serif font-semibold text-slate-900 leading-tight mb-3 max-w-[95%]">
-              {formatTitle(publication.title)}
+              {publication.title}
             </h3>
 
             {/* Authors */}

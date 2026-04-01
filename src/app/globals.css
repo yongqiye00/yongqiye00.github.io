@@ -94,7 +94,7 @@
 
   /* Serif font for headings */
   .font-serif {
-    font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+    font-family: var(--font-source-serif-4), Georgia, "Times New Roman", serif;
   }
 
   /* Focus styles for accessibility */
