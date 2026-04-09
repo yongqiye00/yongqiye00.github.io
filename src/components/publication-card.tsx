@@ -3,7 +3,6 @@
 import type { Publication } from "@/types";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { ExternalLink, FileText, Github, Calendar, FileImage } from "lucide-react";
 import { motion } from "framer-motion";
 import { scrollAnimationProps, hoverLift } from "@/lib/animations";
@@ -39,36 +38,16 @@ const PublicationCard = ({ publication, featured = false, index = 0 }: Publicati
     return abbreviations[venue] || venue;
   };
 
-  const getStatusVariant = (status?: string) => {
-    switch (status) {
-      case 'published':
-        return 'default';
-      case 'preprint':
-        return 'secondary';
-      case 'in-press':
-        return 'warning';
-      default:
-        return 'outline';
-    }
-  };
-
-  const getTypeVariant = (type: string) => {
-    switch (type) {
-      case 'conference':
-        return 'default';
-      case 'journal':
-        return 'success';
-      case 'workshop':
-        return 'secondary';
-      case 'thesis':
-        return 'outline';
-      default:
-        return 'outline';
-    }
-  };
-
   const hasThumbnail = publication.image && publication.image.length > 0;
   const thumbnailTarget = publication.pdf_url || publication.project_url;
+  const presentationLabel =
+    publication.presentation_type === "oral"
+      ? "Oral"
+      : publication.presentation_type === "highlight"
+        ? "Highlight"
+        : null;
+  const presentationClassName =
+    "border-[rgb(137,11,13)]/15 bg-[rgb(137,11,13)]/8 text-[rgb(137,11,13)]";
 
   return (
     <motion.div
@@ -171,6 +150,14 @@ const PublicationCard = ({ publication, featured = false, index = 0 }: Publicati
                   {formatDate(publication.year)}
                 </span>
               </div>
+              {presentationLabel && (
+                <Badge
+                  variant="outline"
+                  className={`uppercase tracking-[0.08em] ${presentationClassName}`}
+                >
+                  {presentationLabel}
+                </Badge>
+              )}
             </div>
 
             {/* Tags - Only show 2-3 most relevant */}

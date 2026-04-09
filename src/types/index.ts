@@ -43,6 +43,7 @@ export interface Publication {
   venue: string;
   year: number;
   type: PublicationType;
+  presentation_type?: 'oral' | 'highlight';
   doi?: string;
   pdf_url?: string;
   code_url?: string;

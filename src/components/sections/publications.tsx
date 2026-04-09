@@ -156,35 +156,6 @@ const Publications = () => {
           </div>
         )}
 
-        {/* Stats */}
-        <div className="mt-16 pt-8 border-t border-slate-200">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div>
-              <div className="text-2xl font-bold text-indigo-500">
-                {publications.length}
-              </div>
-              <div className="text-sm text-slate-600">Total Papers</div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-indigo-500">
-                {uniqueYears.length}
-              </div>
-              <div className="text-sm text-slate-600">Years Active</div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-indigo-500">
-                {uniqueTypes.length}
-              </div>
-              <div className="text-sm text-slate-600">Publication Types</div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-indigo-500">
-                {publications.filter(p => p.featured).length}
-              </div>
-              <div className="text-sm text-slate-600">Featured</div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
