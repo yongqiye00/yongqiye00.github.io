@@ -25,7 +25,7 @@ export const profile: Profile = {
   google_scholar: undefined,
   resume_url: undefined,
   stats: {
-    publications: "3",
+    publications: "5",
     citations: "6",
     projects: "2"
   },

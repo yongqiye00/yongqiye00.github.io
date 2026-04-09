@@ -26,6 +26,32 @@ export const publications: Publication[] = [
     status: "published"
   },
   {
+    id: "cvpr-2026-spokend-filter",
+    title: "HFR and HDR video from multi-attenuated spikes using a rapidly rotating SpokeND filter",
+    authors: [
+      { name: "Yakun Chang" },
+      { name: "Zhaojun Huang" },
+      { name: "Siqi Yang" },
+      { name: "Yeliduosi Xiaokaiti", is_highlight: true },
+      { name: "Shikui Wei" },
+      { name: "Yao Zhao" },
+      { name: "Tiejun Huang" },
+      { name: "Boxin Shi" }
+    ],
+    venue: "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+    year: 2026,
+    type: "conference",
+    doi: "",
+    pdf_url: "",
+    code_url: "",
+    project_url: "",
+    image: "/thumbnails/2026/spokend-filter.png",
+    abstract: "Capturing scenes with both high dynamic range (HDR) and high-speed motion is challenging for conventional cameras. Existing alternating-exposure approaches reduce temporal resolution, making them unsuitable for high-speed scenes. Current solutions often fix spatially-varying attenuation or use multiple sensors to preserve temporal resolution. This paper leverages an ultra-high-speed spike camera for spatial and temporal attenuation of incident light, reconstructing high-frame-rate (HFR) and HDR video with a single sensor. A rapidly rotating spoke-pattern neutral density (SpokeND) filter enables each pixel to periodically capture multi-attenuated spikes. Building on these, we propose ReST-Net, with ReGain and ReFine modules: ReGain reconstructs spatially consistent frames by recovering relative gain from spikes, while ReFine removes temporal fluctuations for temporally consistent HDR videos. Experiments on synthetic and real-world data show reconstruction of HDR video at up to 2000 FPS.",
+    tags: ["Spike Camera", "HDR", "High Frame Rate", "Video Reconstruction", "Optical Filter"],
+    featured: true,
+    status: "published"
+  },
+  {
     id: "cvpr-2024-spikings",
     title: "Towards HDR and HFR video from rolling-mixed-bit spikings",
     authors: [
