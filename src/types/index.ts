@@ -48,6 +48,7 @@ export interface Publication {
   pdf_url?: string;
   code_url?: string;
   project_url?: string;
+  bibtex?: string;
   image?: string;
   abstract: string;
   tags: string[];

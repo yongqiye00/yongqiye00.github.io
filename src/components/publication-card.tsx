@@ -3,7 +3,7 @@
 import type { Publication } from "@/types";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, FileText, Github, Calendar, FileImage } from "lucide-react";
+import { ExternalLink, FileText, Github, Calendar, FileImage, BookOpen, Copy, Check } from "lucide-react";
 import { motion } from "framer-motion";
 import { scrollAnimationProps, hoverLift } from "@/lib/animations";
 import Image from "next/image";
@@ -17,6 +17,8 @@ interface PublicationCardProps {
 
 const PublicationCard = ({ publication, featured = false, index = 0 }: PublicationCardProps & { index?: number }) => {
   const [aspectRatio, setAspectRatio] = useState<number | undefined>();
+  const [showBibtex, setShowBibtex] = useState(false);
+  const [copiedBibtex, setCopiedBibtex] = useState(false);
 
   const formatDate = (year: number) => {
     return year.toString();
@@ -40,6 +42,7 @@ const PublicationCard = ({ publication, featured = false, index = 0 }: Publicati
 
   const hasThumbnail = publication.image && publication.image.length > 0;
   const thumbnailTarget = publication.pdf_url || publication.project_url;
+  const hasBibtex = Boolean(publication.bibtex?.trim());
   const presentationLabel =
     publication.presentation_type === "oral"
       ? "Oral"
@@ -48,6 +51,14 @@ const PublicationCard = ({ publication, featured = false, index = 0 }: Publicati
         : null;
   const presentationClassName =
     "border-[rgb(137,11,13)]/15 bg-[rgb(137,11,13)]/8 text-[rgb(137,11,13)]";
+
+  const handleCopyBibtex = async () => {
+    if (!publication.bibtex) return;
+
+    await navigator.clipboard.writeText(publication.bibtex);
+    setCopiedBibtex(true);
+    window.setTimeout(() => setCopiedBibtex(false), 1800);
+  };
 
   return (
     <motion.div
@@ -200,7 +211,9 @@ const PublicationCard = ({ publication, featured = false, index = 0 }: Publicati
               )}
               {publication.project_url && (
                 <>
-                  <span className="text-slate-300 mx-1">·</span>
+                  {(publication.pdf_url || publication.code_url) && (
+                    <span className="text-slate-300 mx-1">·</span>
+                  )}
                   <a
                     href={publication.project_url}
                     target="_blank"
@@ -212,9 +225,47 @@ const PublicationCard = ({ publication, featured = false, index = 0 }: Publicati
                   </a>
                 </>
               )}
+              {hasBibtex && (
+                <>
+                  {(publication.pdf_url || publication.code_url || publication.project_url) && (
+                    <span className="text-slate-300 mx-1">·</span>
+                  )}
+                  <button
+                    type="button"
+                    onClick={() => setShowBibtex((current) => !current)}
+                    aria-expanded={showBibtex}
+                    className="flex items-center hover:text-indigo-500 transition-colors"
+                  >
+                    <BookOpen className="h-3.5 w-3.5 mr-1" />
+                    BibTeX
+                  </button>
+                </>
+              )}
             </div>
           </div>
         </div>
+        {hasBibtex && showBibtex && (
+          <div className="mt-3 min-w-0 max-w-full overflow-hidden rounded-md border border-slate-200 bg-slate-50 md:ml-[322px]">
+            <div className="flex items-center justify-between gap-3 border-b border-slate-200 px-3 py-2">
+              <span className="text-xs font-medium text-slate-700">BibTeX</span>
+              <button
+                type="button"
+                onClick={handleCopyBibtex}
+                className="inline-flex items-center gap-1 text-xs text-slate-600 hover:text-indigo-500 transition-colors"
+              >
+                {copiedBibtex ? (
+                  <Check className="h-3.5 w-3.5" />
+                ) : (
+                  <Copy className="h-3.5 w-3.5" />
+                )}
+                {copiedBibtex ? "Copied" : "Copy"}
+              </button>
+            </div>
+            <pre className="max-w-full overflow-x-auto whitespace-pre-wrap break-words p-3 text-[11px] leading-relaxed text-slate-700">
+              <code>{publication.bibtex}</code>
+            </pre>
+          </div>
+        )}
       </Card>
     </motion.div>
   );
