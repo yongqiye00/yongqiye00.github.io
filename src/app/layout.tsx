@@ -31,24 +31,24 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Yeliduosi Xiaokaiti - AI Researcher & Computer Vision Scientist",
+    title: "Yeliduosi Xiaokaiti",
     description: "Research in computational imaging, computer vision, event-based sensing, and artificial intelligence at Peking University",
     type: "website",
     locale: "en_US",
     url: "https://yongqiye00.github.io",
-    siteName: "Yeliduosi Xiaokaiti | AI Research Portfolio",
+    siteName: "Yeliduosi Xiaokaiti",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Yeliduosi Xiaokaiti - AI Research Portfolio",
+        alt: "Yeliduosi Xiaokaiti",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Yeliduosi Xiaokaiti - AI Researcher",
+    title: "Yeliduosi Xiaokaiti",
     description: "Research in computational imaging, computer vision, and event-based sensing",
     site: "@yongqiye00",
     creator: "@yongqiye00",
